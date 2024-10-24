@@ -1,3 +1,40 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+:root {
+  /* Font Family*/
+  --font-family: "Nunito Sans", sans-serif;
+
+  /* Font Weight */
+  --fw-bold: 800;
+  --fw-semi-bold: 600;
+  --fw-regular: 300;
+
+  /* Font Size */
+  --fs-homepage: clamp(0.8125rem, 0.7946rem + 0.0893vw, 0.875rem);
+  --fs-detail-page: clamp(0.9375rem, 0.9196rem + 0.0893vw, 1rem);
+}
+
+body {
+  --color-elements: hsl(0, 0%, 100%);
+  --color-background: hsl(0, 0%, 98%);
+  --color-input-text: hsl(0, 0%, 52%);
+  --color-text: hsl(200, 15%, 8%);
+
+  font-family: var(--font-family);
+}
+
+/* body[data-theme="light"] {
+  --color-elements: hsl(0, 0%, 100%);
+  --color-background: hsl(0, 0%, 98%);
+  --color-input-text: hsl(0, 0%, 52%);
+  --color-text: hsl(200, 15%, 8%);
+}
+
+body[data-theme="dark"] {
+  --color-elements: hsl(209, 23%, 22%);
+  --color-background: hsl(207, 26%, 17%);
+  --color-input-text: hsl(0, 0%, 52%);
+  --color-text: hsl(0, 0%, 100%);
+} */
