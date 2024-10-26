@@ -34,7 +34,7 @@ const Countries: React.FC = () => {
       {countries.map((country) => {
         return (
           <React.Fragment key={country.cca3}>
-            <Link to={`/${country.name?.common}`}>
+            <Link to={`/${country.name?.official}`}>
               <CountryItem
                 imgSrc={country.flags.svg}
                 alt={country.flags.alt}
