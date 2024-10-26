@@ -12,12 +12,25 @@ export default {
     container: {
       center: true,
       padding: "1.5rem",
+      screens: {
+        sm: "640px",
+        md: "768px",
+        lg: "1024px",
+        xl: "1200px",
+      },
     },
     colors: {
       "color-elements": "var(--color-elements)",
       "color-background": "var(--color-background)",
       "color-input-text": "var(--color-input-text)",
       "color-text": "var(--color-text)",
+    },
+    fontSize: {
+      "fs-logo": "var(--fs-logo)",
+      "fs-homepage": "var(--fs-homepage)",
+      "fs-detail-page": "var(--fs-detail-page)",
+      "fs-card-title": "var(--fs-card-title)",
+      "fs-detail-page-title": "var(--fs-detail-page-title)",
     },
     fontWeight: {
       "fw-bold": "var(--fw-bold)",

@@ -12,8 +12,11 @@
   --fw-regular: 300;
 
   /* Font Size */
+  --fs-logo: clamp(1.25rem, 1.2143rem + 0.1786vw, 1.375rem);
+  --fs-card-title: clamp(1rem, 0.9643rem + 0.1786vw, 1.125rem);
   --fs-homepage: clamp(0.8125rem, 0.7946rem + 0.0893vw, 0.875rem);
   --fs-detail-page: clamp(0.9375rem, 0.9196rem + 0.0893vw, 1rem);
+  --fs-detail-page-title: clamp(1.375rem, 1.2679rem + 0.5357vw, 1.75rem);
 }
 
 body {
@@ -23,6 +26,10 @@ body {
   --color-text: hsl(200, 15%, 8%);
 
   font-family: var(--font-family);
+  font-weight: var(--fw-regular);
+  color: var(--color-text);
+
+  background-color: var(--color-background);
 }
 
 /* body[data-theme="light"] {
@@ -38,3 +45,13 @@ body[data-theme="dark"] {
   --color-input-text: hsl(0, 0%, 52%);
   --color-text: hsl(0, 0%, 100%);
 } */
+
+.grid-customs {
+  --grid-size: 250px;
+
+  display: grid;
+  grid-template-columns: repeat(
+    auto-fill,
+    minmax(min(100%, var(--grid-size)), 1fr)
+  );
+}
