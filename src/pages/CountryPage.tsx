@@ -1,7 +1,12 @@
 import React from "react";
+import CountryPageContents from "../components/CountryPageContents";
 
 const CountryPage: React.FC = () => {
-  return <div>CountryPage</div>;
+  return (
+    <React.Fragment>
+      <CountryPageContents />
+    </React.Fragment>
+  );
 };
 
 export default CountryPage;
