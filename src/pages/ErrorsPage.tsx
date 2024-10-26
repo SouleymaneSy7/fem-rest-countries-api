@@ -1,7 +1,8 @@
 import React from "react";
+import Errors from "../components/Errors";
 
 const ErrorsPage: React.FC = () => {
-  return <div>ErrorsPage</div>;
+  return <Errors />;
 };
 
 export default ErrorsPage;
