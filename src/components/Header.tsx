@@ -4,6 +4,29 @@ import Title from "./Title";
 import Buttons from "./Buttons";
 
 const Header: React.FC = () => {
+  const [isDarkMode, setIsDarkMode] = React.useState(false);
+  const root = window.document.documentElement;
+
+  React.useEffect(() => {
+    const theme = localStorage.getItem("theme");
+    if (theme === "dark") {
+      root.classList.add("dark");
+      setIsDarkMode(true);
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  const handleClick = () => {
+    if (isDarkMode) {
+      root.classList.remove("dark");
+      localStorage.setItem("theme", "light");
+    } else {
+      localStorage.setItem("theme", "dark");
+      root.classList.add("dark");
+    }
+    setIsDarkMode(!isDarkMode);
+  };
+
   return (
     <header className="py-6 md:py-4 bg-color-elements shadow-lg">
       <nav className="flex items-center justify-between container">
@@ -16,8 +39,16 @@ const Header: React.FC = () => {
           </Title>
         </Link>
 
-        <Buttons type={"button"} className="flex items-center gap-3">
-          <i className="fa-regular fa-moon"></i>
+        <Buttons
+          type={"button"}
+          className="flex items-center gap-3"
+          onClick={handleClick}
+        >
+          {isDarkMode ? (
+            <i className="fa-solid fa-moon | text-color-text"></i>
+          ) : (
+            <i className="fa-regular fa-moon | text-color-text"></i>
+          )}
           <span className="font-fw-semi-bold ">Dark Mode</span>
         </Buttons>
       </nav>
