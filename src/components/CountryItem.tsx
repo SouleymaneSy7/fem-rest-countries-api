@@ -3,10 +3,10 @@ import Title from "./Title";
 
 type CountryItemPropsType = {
   imgSrc: string;
-  title: string;
+  title: string | undefined;
   population: number;
   region: string;
-  capital: string;
+  capital: string[];
 };
 
 const CountryItem: React.FC<CountryItemPropsType> = ({
