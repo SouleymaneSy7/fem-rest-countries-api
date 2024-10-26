@@ -1,7 +1,12 @@
 import React from "react";
+import RouterConfig from "./routes/route";
 
 const App: React.FC = () => {
-  return <div className="text-3xl text-red-300 font-bold">Hello App</div>;
+  return (
+    <React.Fragment>
+      <RouterConfig />
+    </React.Fragment>
+  );
 };
 
 export default App;
