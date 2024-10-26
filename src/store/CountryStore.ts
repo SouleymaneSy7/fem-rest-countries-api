@@ -118,7 +118,7 @@ const useCountryStore = create<StateType & ActionsType>()((set) => ({
 
       const response: AxiosResponse<CountriesDataType[]> = await axios({
         method: "GET",
-        url: `https://restcountries.com/v3.1/name/${name}`,
+        url: `https://restcountries.com/v3.1/name/${name}?fullText=true`,
         responseType: "json",
       } as AxiosRequestConfig);
 
