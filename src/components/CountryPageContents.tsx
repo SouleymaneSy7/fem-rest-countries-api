@@ -2,6 +2,8 @@ import React from "react";
 import useCountryStore from "../store/CountryStore";
 import { Link, useParams } from "react-router-dom";
 import Title from "./Title";
+import Errors from "./Errors";
+import Loader from "./Loader";
 
 const CountryPageContents: React.FC = () => {
   const { countryName } = useParams();
@@ -15,19 +17,11 @@ const CountryPageContents: React.FC = () => {
   }, [countryName, getSingleCountry]);
 
   if (viewState.status === "loading") {
-    return (
-      <div className="h-full w-full flex justify-center items-center">
-        Loading...
-      </div>
-    );
+    return <Loader />;
   }
 
   if (viewState.status === "errors") {
-    return (
-      <div className="h-full w-full flex justify-center items-center">
-        Errors
-      </div>
-    );
+    return <Errors />;
   }
 
   return (
@@ -80,14 +74,22 @@ const CountryPageContents: React.FC = () => {
                       <strong className="font-fw-semi-bold">Region:</strong>{" "}
                       {country.region}
                     </li>
-                    <li className="lg:mb-2">
-                      <strong className="font-fw-semi-bold">Sub Region:</strong>{" "}
-                      {country.subregion}
-                    </li>
-                    <li className="lg:mb-2">
-                      <strong className="font-fw-semi-bold">Capital:</strong>{" "}
-                      {country.capital}
-                    </li>
+
+                    {country.subregion ? (
+                      <li className="lg:mb-2">
+                        <strong className="font-fw-semi-bold">
+                          Sub Region:
+                        </strong>{" "}
+                        {country.subregion}
+                      </li>
+                    ) : null}
+
+                    {country.capital ? (
+                      <li className="lg:mb-2">
+                        <strong className="font-fw-semi-bold">Capital:</strong>{" "}
+                        {country.capital}
+                      </li>
+                    ) : null}
                   </ul>
 
                   <ul>
@@ -95,7 +97,7 @@ const CountryPageContents: React.FC = () => {
                       <strong className="font-fw-semi-bold">
                         Top Level Domain:
                       </strong>{" "}
-                      {country.tld}
+                      {country.tld[0]}
                     </li>
                     <li>
                       {/* <strong className="font-fw-semi-bold">Currencies: {country.currencies.} </strong> */}

@@ -2,6 +2,8 @@ import React from "react";
 import useCountryStore from "../store/CountryStore";
 import CountryItem from "./CountryItem";
 import { Link } from "react-router-dom";
+import Loader from "./Loader";
+import Errors from "./Errors";
 
 const Countries: React.FC = () => {
   const countries = useCountryStore((state) => state.countries);
@@ -14,19 +16,11 @@ const Countries: React.FC = () => {
   }, []);
 
   if (viewState.status === "loading") {
-    return (
-      <div className="h-full w-full flex justify-center items-center">
-        Loading...
-      </div>
-    );
+    return <Loader />;
   }
 
   if (viewState.status === "errors") {
-    return (
-      <div className="h-full w-full flex justify-center items-center">
-        Errors
-      </div>
-    );
+    return <Errors />;
   }
 
   return (
