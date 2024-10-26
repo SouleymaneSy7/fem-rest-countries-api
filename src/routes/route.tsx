@@ -10,7 +10,7 @@ const RouterConfig: React.FC = () => {
     <React.Fragment>
       <Routes>
         <Route path={"/"} element={<Home />} />
-        <Route path={"/:name"} element={<CountryPage />} />
+        <Route path={"/:countryName"} element={<CountryPage />} />
         <Route path={"*"} element={<ErrorsPage />} />
       </Routes>
     </React.Fragment>
