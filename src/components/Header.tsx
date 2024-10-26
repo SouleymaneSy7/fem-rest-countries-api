@@ -5,8 +5,8 @@ import Buttons from "./Buttons";
 
 const Header: React.FC = () => {
   return (
-    <header className="py-5 container border-b border-b-color-text">
-      <nav className="flex items-center justify-between">
+    <header className="py-5 border-b border-b-color-text">
+      <nav className="flex items-center justify-between container">
         <Link to="/">
           <Title level="h1">Where in the world?</Title>
         </Link>
