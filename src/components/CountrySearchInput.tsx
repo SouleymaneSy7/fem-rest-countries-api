@@ -17,22 +17,20 @@ const CountrySearchInput: React.FC = () => {
     getCountriesByName(searchTerm);
   };
 
-  console.log(searchTerm);
-
   return (
     <form
-      className="flex items-center gap-3 p-4 max-w-[380px] rounded-md shadow-lg"
+      className="flex items-center gap-6 py-[14px] px-7 md:px-8 w-full md:max-w-[460px] bg-color-elements rounded-md shadow-lg"
       onSubmit={onSearchSubmit}
     >
       <label htmlFor={inputID}>
-        <i className="fa-solid fa-magnifying-glass"></i>
+        <i className="fa-solid fa-magnifying-glass | text-color-input-text"></i>
       </label>
 
       <Inputs
         type={"text"}
         id={inputID}
         placeholder="Search for a country..."
-        className="h-full w-full outline-none"
+        className="h-full w-full outline-none bg-color-elements placeholder:text-color-input-text placeholder:font-fw-regular text-color-text font-fw-semi-bold "
         value={searchTerm}
         onChange={(e) => setSearchTerm(e.target.value)}
       />

@@ -15,11 +15,12 @@ const CountryFilterByRegion: React.FC = () => {
   );
 
   return (
-    <form>
+    <form className="px-4 w-[187px] h-[52px] bg-color-elements rounded-md shadow-lg cursor-pointer">
       <select
         id="select"
         value={Regions.name}
         onChange={(e) => getCountriesByRegion(e.target.value)}
+        className="w-full h-full bg-color-elements outline-none cursor-pointer"
       >
         <option value="">Filter by Region</option>
         {Regions.map((region, index) => (

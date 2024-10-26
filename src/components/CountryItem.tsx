@@ -3,6 +3,7 @@ import Title from "./Title";
 
 type CountryItemPropsType = {
   imgSrc: string;
+  alt: string;
   title: string | undefined;
   population: number;
   region: string;
@@ -12,21 +13,35 @@ type CountryItemPropsType = {
 const CountryItem: React.FC<CountryItemPropsType> = ({
   imgSrc,
   title,
+  alt,
   population,
   region,
   capital,
 }) => {
   return (
-    <article>
-      <img src={imgSrc} alt={`${title} flags picture`} />
+    <article className="overflow-hidden rounded-md bg-color-elements shadow-md">
+      <img
+        src={imgSrc}
+        alt={alt}
+        className="w-full h-[220px] object-cover aspect-video"
+      />
 
-      <div>
-        <Title level="h2">{title}</Title>
+      <div className="px-6 py-7">
+        <Title level="h2" className="text-fs-card-title font-fw-bold mb-4">
+          {title}
+        </Title>
 
         <ul>
-          <li>Population: {population}</li>
-          <li>Region: {region}</li>
-          <li>Capital: {capital}</li>
+          <li>
+            <strong className="font-fw-semi-bold">Population:</strong>{" "}
+            {population.toLocaleString("en-GB")}
+          </li>
+          <li>
+            <strong className="font-fw-semi-bold">Region:</strong> {region}
+          </li>
+          <li>
+            <strong className="font-fw-semi-bold">Capital:</strong> {capital}
+          </li>
         </ul>
       </div>
     </article>
