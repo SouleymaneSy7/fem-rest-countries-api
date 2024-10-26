@@ -50,3 +50,28 @@ body {
     minmax(min(100%, var(--grid-size)), 1fr)
   );
 }
+
+.loader {
+  width: 60px;
+  aspect-ratio: 2;
+  --radial-gradient: no-repeat
+    radial-gradient(circle closest-side, var(--color-text) 90%, #0000);
+  background: var(--radial-gradient) 0% 50%, var(--radial-gradient) 50% 50%,
+    var(--radial-gradient) 100% 50%;
+  background-size: calc(100% / 3) 50%;
+  animation: dots-loader 1s infinite linear;
+}
+@keyframes dots-loader {
+  20% {
+    background-position: 0% 0%, 50% 50%, 100% 50%;
+  }
+  40% {
+    background-position: 0% 100%, 50% 0%, 100% 50%;
+  }
+  60% {
+    background-position: 0% 50%, 50% 100%, 100% 0%;
+  }
+  80% {
+    background-position: 0% 50%, 50% 50%, 100% 100%;
+  }
+}
