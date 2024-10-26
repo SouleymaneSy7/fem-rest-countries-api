@@ -7,7 +7,7 @@ type ViewStateTypes =
   | { status: "errors" };
 
 type CountriesDataType = {
-  name?: {
+  name: {
     common: string;
     official: string;
     nativeName?: {
@@ -18,12 +18,11 @@ type CountriesDataType = {
     };
   };
   tld: string[];
-  cca2: string;
-  ccn3: string;
   cca3: string;
-  currencies?: object;
+  currencies: object;
   capital: string[];
   region: string;
+  subregion: string;
   languages?: object;
   latlng: number[];
   area: number;
@@ -31,12 +30,14 @@ type CountriesDataType = {
   flags: {
     png: string;
     svg: string;
+    alt: string;
   };
+  borders?: string[];
 };
 
 type StateType = {
   viewState: ViewStateTypes;
-  country: CountriesDataType | null;
+  countryData: CountriesDataType[];
   countries: CountriesDataType[];
 };
 
@@ -44,12 +45,12 @@ type ActionsType = {
   getCountriesData: () => void;
   getCountriesByName: (countryName: string) => void;
   getCountriesByRegion: (regionName: string) => void;
-  getSingleCountry: (name: string) => void;
+  getSingleCountry: (name: string | undefined) => void;
 };
 
 const useCountryStore = create<StateType & ActionsType>()((set) => ({
   viewState: { status: "loading" },
-  country: null,
+  countryData: [],
   countries: [],
   getCountriesData: async () => {
     try {
@@ -115,13 +116,13 @@ const useCountryStore = create<StateType & ActionsType>()((set) => ({
     try {
       set(() => ({ viewState: { status: "loading" } }));
 
-      const response: AxiosResponse<CountriesDataType> = await axios({
+      const response: AxiosResponse<CountriesDataType[]> = await axios({
         method: "GET",
         url: `https://restcountries.com/v3.1/name/${name}`,
         responseType: "json",
       } as AxiosRequestConfig);
 
-      set(() => ({ country: response.data }));
+      set(() => ({ countryData: response.data }));
 
       set(() => ({ viewState: { status: "done" } }));
     } catch (error) {
