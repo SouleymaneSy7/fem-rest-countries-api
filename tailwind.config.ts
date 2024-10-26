@@ -2,6 +2,7 @@ import type { Config } from "tailwindcss";
 
 export default {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
+  darkMode: "class",
   theme: {
     screens: {
       sm: "640px",
@@ -31,6 +32,7 @@ export default {
       "fs-detail-page": "var(--fs-detail-page)",
       "fs-card-title": "var(--fs-card-title)",
       "fs-detail-page-title": "var(--fs-detail-page-title)",
+      "fs-errors-title": "var(--fs-errors-title)",
     },
     fontWeight: {
       "fw-bold": "var(--fw-bold)",

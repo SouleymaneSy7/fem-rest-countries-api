@@ -3,6 +3,12 @@
 @tailwind utilities;
 
 :root {
+  /* colors */
+  --color-elements: hsl(0, 0%, 100%);
+  --color-background: hsl(0, 0%, 98%);
+  --color-input-text: hsl(0, 0%, 52%);
+  --color-text: hsl(200, 15%, 8%);
+
   /* Font Family*/
   --font-family: "Nunito Sans", sans-serif;
 
@@ -17,34 +23,23 @@
   --fs-homepage: clamp(0.8125rem, 0.7946rem + 0.0893vw, 0.875rem);
   --fs-detail-page: clamp(0.9375rem, 0.9196rem + 0.0893vw, 1rem);
   --fs-detail-page-title: clamp(1.375rem, 1.2679rem + 0.5357vw, 1.75rem);
+  --fs-errors-title: clamp(1.5rem, 0.9783rem + 2.6087vw, 3rem);
+}
+
+:root.dark {
+  --color-elements: hsl(209, 23%, 22%);
+  --color-background: hsl(207, 26%, 17%);
+  --color-input-text: hsl(0, 0%, 52%);
+  --color-text: hsl(0, 0%, 100%);
 }
 
 body {
-  --color-elements: hsl(0, 0%, 100%);
-  --color-background: hsl(0, 0%, 98%);
-  --color-input-text: hsl(0, 0%, 52%);
-  --color-text: hsl(200, 15%, 8%);
-
   font-family: var(--font-family);
   font-weight: var(--fw-regular);
   color: var(--color-text);
 
   background-color: var(--color-background);
 }
-
-/* body[data-theme="light"] {
-  --color-elements: hsl(0, 0%, 100%);
-  --color-background: hsl(0, 0%, 98%);
-  --color-input-text: hsl(0, 0%, 52%);
-  --color-text: hsl(200, 15%, 8%);
-}
-
-body[data-theme="dark"] {
-  --color-elements: hsl(209, 23%, 22%);
-  --color-background: hsl(207, 26%, 17%);
-  --color-input-text: hsl(0, 0%, 52%);
-  --color-text: hsl(0, 0%, 100%);
-} */
 
 .grid-customs {
   --grid-size: 250px;
