@@ -7,30 +7,32 @@ type ViewStateTypes =
   | { status: "errors" };
 
 type CountriesDataType = {
+  cca3: string;
+  flags: {
+    svg: string;
+    alt: string;
+  };
   name: {
     common: string;
-    official: string;
-    nativeName?: {
-      eng: {
-        official: string;
+    nativeName: {
+      eng?: {
         common: string;
       };
     };
+    official: string;
   };
-  tld: string[];
-  cca3: string;
-  currencies: object;
-  capital: string[];
-  region: string;
-  subregion: string;
-  languages?: object;
-  latlng: number[];
-  area: number;
   population: number;
-  flags: {
-    png: string;
-    svg: string;
-    alt: string;
+  region: string;
+  subregion?: string;
+  capital: string[];
+  tld: string[];
+  currencies: {
+    [key: string]: {
+      name: string;
+    };
+  };
+  languages: {
+    [key: string]: string;
   };
   borders?: string[];
 };
