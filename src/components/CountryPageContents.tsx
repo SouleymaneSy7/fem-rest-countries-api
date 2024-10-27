@@ -4,9 +4,10 @@ import { Link, useParams } from "react-router-dom";
 import Title from "./Title";
 import Errors from "./Errors";
 import Loader from "./Loader";
+import formatter from "../helpers/formatList";
 
 const CountryPageContents: React.FC = () => {
-  const { countryName } = useParams();
+  const { countryName } = useParams<{ countryName: string }>();
 
   const countryData = useCountryStore((state) => state.countryData);
   const viewState = useCountryStore((state) => state.viewState);
@@ -27,7 +28,7 @@ const CountryPageContents: React.FC = () => {
   return (
     <main className="container py-10 md:py-14">
       <Link
-        to={"/"}
+        to="/"
         className="flex items-center w-fit gap-4 py-2 px-8 bg-color-elements rounded-md shadow-lg mb-10 md:mb-20"
       >
         <i className="fa-solid fa-arrow-left | text-color-text"></i>
@@ -60,11 +61,12 @@ const CountryPageContents: React.FC = () => {
                       <strong className="font-fw-semi-bold">
                         Native Name:
                       </strong>{" "}
-                      {country.name?.nativeName?.eng ? (
-                        <span>{country.name?.nativeName?.eng.common}</span>
-                      ) : (
-                        <span>{country.name?.official}</span>
-                      )}
+                      {formatter(
+                        Object.values(country.name.nativeName).map(
+                          (name) => name.common
+                        ),
+                        "disjunction"
+                      ) || country.name?.official}
                     </li>
                     <li className="lg:mb-2">
                       <strong className="font-fw-semi-bold">Population:</strong>{" "}
@@ -99,11 +101,21 @@ const CountryPageContents: React.FC = () => {
                       </strong>{" "}
                       {country.tld[0]}
                     </li>
-                    <li>
-                      {/* <strong className="font-fw-semi-bold">Currencies: {country.currencies.} </strong> */}
+                    <li className="lg:mb-2">
+                      <strong className="font-fw-semi-bold">
+                        Currencies:{" "}
+                      </strong>
+                      {formatter(
+                        Object.values(country.currencies).map((c) => c.name),
+                        "conjunction"
+                      )}
                     </li>
-                    <li>
-                      {/* <strong className="font-fw-semi-bold">Languages: {country.languages} </strong> */}
+                    <li className="lg:mb-2">
+                      <strong className="font-fw-semi-bold">Languages: </strong>
+                      {formatter(
+                        Object.values(country.languages),
+                        "conjunction"
+                      )}
                     </li>
                   </ul>
                 </div>
@@ -117,7 +129,7 @@ const CountryPageContents: React.FC = () => {
                     </p>
 
                     <ul className="flex items-center gap-2 flex-wrap">
-                      {country.borders?.map((border, index) => {
+                      {country.borders?.map((border: string, index: number) => {
                         return (
                           <li
                             key={index}
