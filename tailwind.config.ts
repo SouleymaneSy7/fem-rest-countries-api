@@ -25,6 +25,7 @@ export default {
       "color-background": "var(--color-background)",
       "color-input-text": "var(--color-input-text)",
       "color-text": "var(--color-text)",
+      "color-errors": "var(--color-errors)",
     },
     fontSize: {
       "fs-logo": "var(--fs-logo)",
