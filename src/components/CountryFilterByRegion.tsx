@@ -1,5 +1,6 @@
 import React from "react";
 import useCountryStore from "../store/CountryStore";
+import VisuallyHidden from "./visuallyHidden";
 
 const Regions = [
   { name: "Africa" },
@@ -21,6 +22,7 @@ const CountryFilterByRegion: React.FC = () => {
         value={Regions.name}
         onChange={(e) => getCountriesByRegion(e.target.value)}
         className="w-full h-full bg-color-elements outline-none cursor-pointer"
+        aria-label="Filter countries based on region"
       >
         <option value="">Filter by Region</option>
         {Regions.map((region, index) => (
@@ -29,6 +31,7 @@ const CountryFilterByRegion: React.FC = () => {
           </option>
         ))}
       </select>
+      <VisuallyHidden>Filter countries based on region.</VisuallyHidden>
     </form>
   );
 };

@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import Title from "./Title";
 import Buttons from "./Buttons";
+import VisuallyHidden from "./visuallyHidden";
 
 const Header: React.FC = () => {
   const [isDarkMode, setIsDarkMode] = React.useState(false);
@@ -45,9 +46,15 @@ const Header: React.FC = () => {
           onClick={handleClick}
         >
           {isDarkMode ? (
-            <i className="fa-solid fa-moon | text-color-text"></i>
+            <React.Fragment>
+              <i className="fa-solid fa-moon | text-color-text"></i>
+              <VisuallyHidden>Toggle color theme to light</VisuallyHidden>
+            </React.Fragment>
           ) : (
-            <i className="fa-regular fa-moon | text-color-text"></i>
+            <React.Fragment>
+              <i className="fa-regular fa-moon | text-color-text"></i>
+              <VisuallyHidden>Toggle color theme to dark</VisuallyHidden>
+            </React.Fragment>
           )}
           <span className="font-fw-semi-bold ">Dark Mode</span>
         </Buttons>

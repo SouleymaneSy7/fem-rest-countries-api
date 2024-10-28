@@ -1,6 +1,7 @@
 import React, { FormEvent } from "react";
 import Inputs from "./Inputs";
 import useCountryStore from "../store/CountryStore";
+import VisuallyHidden from "./visuallyHidden";
 
 const CountrySearchInput: React.FC = () => {
   const [searchTerm, setSearchTerm] = React.useState("");
@@ -34,6 +35,7 @@ const CountrySearchInput: React.FC = () => {
         value={searchTerm}
         onChange={(e) => setSearchTerm(e.target.value)}
       />
+      <VisuallyHidden>Search for a country</VisuallyHidden>
     </form>
   );
 };

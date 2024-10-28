@@ -5,6 +5,7 @@ import Title from "./Title";
 import Errors from "./Errors";
 import Loader from "./Loader";
 import formatter from "../helpers/formatList";
+import VisuallyHidden from "./visuallyHidden";
 
 const CountryPageContents: React.FC = () => {
   const { countryName } = useParams<{ countryName: string }>();
@@ -33,6 +34,7 @@ const CountryPageContents: React.FC = () => {
       >
         <i className="fa-solid fa-arrow-left | text-color-text"></i>
         <span>Back</span>
+        <VisuallyHidden>Go back to the homepage</VisuallyHidden>
       </Link>
 
       <section className="flex flex-col gap-9 lg:flex-row lg:justify-between lg:items-center">

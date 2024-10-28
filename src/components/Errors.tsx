@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import VisuallyHidden from "./visuallyHidden";
 
 const Errors: React.FC = () => {
   return (
@@ -21,6 +22,7 @@ const Errors: React.FC = () => {
               className="rounded-md bg-color-elements px-3.5 py-2.5 text-fs-homepage font-fw-semi-bold  text-color-text shadow-sm hover:bg-color-background focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 border"
             >
               Go back home
+              <VisuallyHidden>Go Back to the homepage</VisuallyHidden>
             </Link>
           </div>
         </div>
