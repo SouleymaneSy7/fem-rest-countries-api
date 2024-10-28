@@ -44,7 +44,7 @@ body {
 }
 
 .grid-customs {
-  --grid-size: 250px;
+  --grid-size: 15.625rem;
 
   display: grid;
   grid-template-columns: repeat(
@@ -54,7 +54,7 @@ body {
 }
 
 .loader {
-  width: 60px;
+  width: 3.75rem;
   aspect-ratio: 2;
   --radial-gradient: no-repeat
     radial-gradient(circle closest-side, var(--color-text) 90%, #0000);
@@ -63,6 +63,7 @@ body {
   background-size: calc(100% / 3) 50%;
   animation: dots-loader 1s infinite linear;
 }
+
 @keyframes dots-loader {
   20% {
     background-position: 0% 0%, 50% 50%, 100% 50%;
@@ -76,4 +77,20 @@ body {
   80% {
     background-position: 0% 50%, 50% 50%, 100% 100%;
   }
+}
+
+.visually-hidden {
+  display: inline-block;
+  position: absolute;
+
+  height: 1px;
+  width: 1px;
+
+  border: 0;
+  clip: rect(0 0 0 0);
+
+  margin: -1px;
+  padding: 0;
+
+  overflow: hidden;
 }
