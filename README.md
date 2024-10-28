@@ -4,8 +4,8 @@
 
 ## Links
 
-- Solution URL: [Add solution URL here](https://your-solution-url.com)
-- Live Site Demo URL: [Add live site URL here](https://your-live-site-url.com)
+- Solution URL: [Solution URL](https://www.frontendmentor.io/solutions/rest-countries-apibuilt-with-react-typescript-zustand-axios-adbTweRPUa)
+- Live Site Demo URL: [Live site URL Demo](https://fem-rest-countries-api-4m8s.vercel.app/)
 
 ## Welcome! 👋
 
